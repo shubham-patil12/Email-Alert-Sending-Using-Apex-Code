@@ -1,0 +1,15 @@
+//Sending A Email Alert Message Using Apex Code In Salesforce
+
+public class SendEmail {
+    public static void Emailalert(String emailaddress) {
+        if(!String.isBlank(emailaddress)){
+            Messaging.SingleEmailMessage mail= New Messaging.SingleEmailMessage();
+              List<String>toaddresslist = New List<String>{emailaddress};
+            mail.setSubject( 'Congratulation : You are New Customer' );
+            mail.setPlainTextBody( 'you are customer, You will get many benefits ,if you shop now' );
+            mail.setToAddresses(toaddresslist);
+        
+            Messaging.sendEmail(New Messaging.SingleEmailMessage[]{mail});
+
+//After that Just Execute This Code Anonymous Window 
+SendEmail.Emailalert('add your email');
